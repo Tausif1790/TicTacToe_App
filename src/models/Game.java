@@ -193,11 +193,21 @@ public class Game {
         return players.get(index);
     }
 
+    // Method to display moves history
+    public void gameSummary(Game game){
+        System.out.println("<-------- Summary: -------->");
+        for(Move currMove : game.getMoves()){
+            System.out.println(currMove.getPlayer().getName() + " play '" + currMove.getPlayer().getSymbol()
+                    + "' on cell: " + currMove.getCell().getRow() + ", " + currMove.getCell().getCol());
+        }
+    }
+
     // The GameBuilder class is used to construct a Game object with a fluent API.
     public static Builder getBuilder() {
         return new Builder();
     }
 
+    //------------------------------------------------------------------------------------------//
     //----------- GameBuilder is an inner class designed to build the Game object step-by-step.
     // This pattern simplifies the creation of Game objects, especially when there are many
     // parameters or optional settings involved.

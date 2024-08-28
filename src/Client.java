@@ -74,12 +74,16 @@ public class Client {
 
                 // Check the game state after each move to determine if there's a winner or a draw.
                 if (gameController.checkGameState(game).equals(GameState.GAME_WON)) {
+                    System.out.println("==========================================================");
                     System.out.println(gameController.getWinner(game).getName() + " wins the game!");
                     gameController.display(game);
+                    gameController.gameSummary(game);
                     break;
                 } else if (gameController.checkGameState(game).equals(GameState.DRAW)) {
+                    System.out.println("==========================================================");
                     System.out.println("The game is a draw!");
                     gameController.display(game);
+                    gameController.gameSummary(game);
                     break;
                 }
             }

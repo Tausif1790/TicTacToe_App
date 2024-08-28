@@ -2,6 +2,7 @@ package controllers;
 
 import models.Game;
 import models.GameState;
+import models.Move;
 import models.Player;
 import strategies.WinningStrategy;
 
@@ -51,7 +52,13 @@ public class GameController {
         game.undo(game);
     }
 
+    //
     public Player getCurrentPlayer(Game game){
         return game.getCurrentPlayer();
+    }
+
+    // Method to display moves history
+    public void gameSummary(Game game){
+        game.gameSummary(game);
     }
 }
