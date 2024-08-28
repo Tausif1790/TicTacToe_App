@@ -27,15 +27,12 @@ public class RowWinningStrategy implements WinningStrategy {
 
         // If the row doesn't exist in the map, add it with an empty symbol count map.
         rowCountMap.putIfAbsent(r, new HashMap<>());
-
         // Retrieve the symbol count map for the specific row.
         HashMap<Character, Integer> countMap = rowCountMap.get(r);  // => inner map of key r
 
         // If the symbol isn't in the count map, add it with an initial count of 0.
         countMap.putIfAbsent(symbol, 0);
-
-        // Increment the count of the symbol in the corresponding row.
-        countMap.put(symbol, countMap.get(symbol) + 1);
+        countMap.put(symbol, countMap.get(symbol) + 1);     // Increment the count of the symbol in the corresponding row.
 
         // Check if the current symbol has filled the entire row, thereby winning the game.
         if(countMap.get(symbol) == board.getDimension()){

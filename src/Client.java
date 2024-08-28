@@ -6,6 +6,7 @@ import strategies.WinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 // This class acts as the entry point of the application, simulating the user interaction part
@@ -18,19 +19,20 @@ public class Client {
         // invoke startGame() on GameController, it constructs and returns a Game object, abstracting
         // the complexities of game initialization.
         GameController gameController = new GameController();
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);        // to take user input
+        Random random = new Random();               // to select random values
 
         try {
             //---------------------- Creating Players
             // Ideally, player information would be fetched from a PlayerController or input by the user.
             // Here, we simulate the frontend part where player data is hardcoded.
             Player player1 = new HumanPlayer("11", "Akash", 'X');
-            Player player2 = new BotPlayer("12", "Botty", 'O', BotPlayingDifficulty.EASY);
+            Player player2 = new BotPlayer("12", "Botty", 'O', BotPlayingDifficulty.MEDIUM);
             Player player3 = new HumanPlayer("13", "Tausif", 'T');
 
-            // Create a list of players for the game. ( currently 2 players are playing "Akash" and Bot -> "Botty"
+            // Create a list of players for the game. ( currently 2 players are playing "Akash" and Bot -> "Botty")
             List<Player> players = new ArrayList<>();
-            players.add(player1);
+            players.add(player1);       // player 1 start first
             players.add(player2);
 
             //---------------------- Adding all Winning Strategies ( Using Strategy Pattern )
